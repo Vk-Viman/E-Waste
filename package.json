@@ -1,0 +1,25 @@
+{
+    "name": "ecocollect",
+    "private": true,
+    "version": "1.0.0",
+    "workspaces": [
+        "apps/backend",
+        "apps/frontend-next",
+        "packages/*"
+    ],
+    "scripts": {
+        "predev": "turbo run build --filter=@ecocollect/ui --filter=@ecocollect/shared-types",
+        "dev": "npm run predev && concurrently \"npm --prefix ./apps/backend run dev\" \"npm --prefix ./apps/frontend-next run dev\"",
+        "build": "turbo run build",
+        "start": "concurrently \"npm --prefix ./apps/backend run start\" \"npm --prefix ./apps/frontend-next run start\""
+    },
+    "devDependencies": {
+        "concurrently": "^8.2.2",
+        "turbo": "^2.1.3"
+    },
+    "packageManager": "npm@10.9.0",
+    "dependencies": {
+        "mongodb": "^6.20.0",
+        "yargs": "^17.7.2"
+    }
+}

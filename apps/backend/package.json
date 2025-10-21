@@ -1,0 +1,37 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node src/server.js",
+    "build": "echo backend build",
+    "smoke": "node scripts/smoke-auth.js",
+    "test": "jest --runInBand",
+    "config:view": "node scripts/view-config.js",
+    "config:edit": "node scripts/edit-config.js",
+    "config:reset": "node scripts/reset-config.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "csurf": "^1.11.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.5.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.0.0",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.10.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "private": true,
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "mongodb-memory-server": "^8.12.0",
+    "resolve.exports": "^2.0.3",
+    "supertest": "^6.3.4"
+  }
+}
