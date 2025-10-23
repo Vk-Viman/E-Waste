@@ -6,5 +6,10 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
+    ,
+    "baseUrl": ".",
+    "paths": {
+      "@ecocollect/*": ["packages/*/src", "packages/*"]
+    }
   }
 }

@@ -5,6 +5,9 @@ const BinSchema = new mongoose.Schema(
     binId: { type: String, required: true, unique: true, index: true },
     location: { type: String },
     category: { type: String },
+    latitude: { type: Number },
+    longitude: { type: Number },
+    areaId: { type: String, index: true }, // For grouping bins by area
   },
   { timestamps: true }
 );

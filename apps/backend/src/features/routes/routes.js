@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { listRoutes, createRoute, optimizeRoutes } = require('./controller');
-const { requireRole } = require('../auth/service');
+const { protect, requireRole } = require('../auth/service');
 
 const router = Router();
 
@@ -18,7 +18,7 @@ const router = Router();
  *       403:
  *         description: Forbidden
  */
-router.get('/', requireRole(['manager','admin']), listRoutes);
+router.get('/', protect, requireRole(['manager','admin']), listRoutes);
 /**
  * @swagger
  * /api/routes:
@@ -39,7 +39,7 @@ router.get('/', requireRole(['manager','admin']), listRoutes);
  *       403:
  *         description: Forbidden
  */
-router.post('/', requireRole(['manager','admin']), createRoute);
+router.post('/', protect, requireRole(['manager','admin']), createRoute);
 /**
  * @swagger
  * /api/routes/optimize:
@@ -54,6 +54,6 @@ router.post('/', requireRole(['manager','admin']), createRoute);
  *       403:
  *         description: Forbidden
  */
-router.post('/optimize', requireRole(['manager','admin']), optimizeRoutes);
+router.post('/optimize', protect, requireRole(['manager','admin']), optimizeRoutes);
 
 module.exports = router;

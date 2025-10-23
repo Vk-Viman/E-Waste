@@ -8,6 +8,10 @@ mongoose.set('strictQuery', true);
 // don't require it unless explicitly enabled.
 const useInMemoryMongo = process.env.USE_IN_MEMORY_MONGO === 'true';
 let mongoServer;
+// Debug log to verify env wiring
+if (process.env.DEBUG_DB === 'true') {
+  console.log('[db] USE_IN_MEMORY_MONGO raw="' + process.env.USE_IN_MEMORY_MONGO + '" parsed=', useInMemoryMongo);
+}
 
 async function sleep(ms) {
   return new Promise((res) => setTimeout(res, ms));

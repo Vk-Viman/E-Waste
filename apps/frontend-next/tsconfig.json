@@ -18,6 +18,9 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
+    "paths": {
+      "@ecocollect/*": ["../../packages/*/src", "../../packages/*"]
+    },
     "plugins": [
       {
         "name": "next"
